@@ -64,6 +64,31 @@ Get an Album’s Tracks
    :param album_id: album's unique id
    :type album_id: int
 
+Get An Artist
+-----------------------------------------
+.. http:get:: v1/artists/(int:artist_id)
+
+	Get catalog information for a single artist identified by their unique ID
+
+   :param artist_id: album's unique id
+   :type artist_id: int
+
+Get an Artist's Albums
+-----------------------------------------
+.. http:get:: v1/artists/(int:artist_id)/albums
+
+	Get Spotify catalog information about an artist’s albums. 
+
+   :param artist_id: album's unique id
+   :type artist_id: int
+
+	
+
+
+
+
+
+
 
 
 Indices and tables

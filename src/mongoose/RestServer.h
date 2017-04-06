@@ -2,16 +2,14 @@
 #define RESTSERVER_H_
 
 class RestServer {
- 
-private:
-
-	int port;
 
 public:
 
 	RestServer();
 
 	void start();
+
+	void run();
 
 	void stop();
 

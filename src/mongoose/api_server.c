@@ -57,7 +57,7 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
   }
 }
 
-int main(int argc, char *argv[]) {
+int main_old (int argc, char *argv[]) {
   struct mg_mgr mgr;
   struct mg_connection *nc;
   int i;

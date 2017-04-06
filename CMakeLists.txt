@@ -17,7 +17,7 @@ include_directories(${LIBMONGOCXX_INCLUDE_DIRS} ${LIBBSONCXX_INCLUDE_DIRS})
 link_directories(${LIBMONGOCXX_LIBRARY_DIRS} ${LIBBSONCXX_LIBRARY_DIRS}) 
 
 #However, the file(GLOB...) allows for wildcard additions:
-file(GLOB SOURCES "src/*.cpp" src/DB/*.cpp)
+file(GLOB SOURCES "src/*.cpp" src/DB/*.cpp src/mongoose/*.c src/mongoose/*.cpp)
 
 add_executable(serverapp ${SOURCES})
 

@@ -1,5 +1,6 @@
 #include "plog/Log.h"
 #include "DB/DBManager.h"
+#include "mongoose/RestServer.h"
 
 
 #include <iostream>
@@ -13,6 +14,9 @@ int main(int argc, char *argv[]) {
 	// MONGO DB
 	DBManager d;
 	d.helloWorld();
+	// mongoose
+	RestServer s;
+	s.run();
 	return 0;
 
 }
