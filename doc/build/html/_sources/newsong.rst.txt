@@ -1,0 +1,10 @@
+New Song
+===========================================================
+
+.. http:post:: /songs/(int:song_id)
+
+   Adds a new song.
+
+   :param song_id: songs's unique id
+   :type song_id: int
+

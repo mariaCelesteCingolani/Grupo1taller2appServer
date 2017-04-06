@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Music.io RESTFUL API documentation &#8212; Music.io Server App restful API 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="music-io-restful-api-documentation">
+<h1>Music.io RESTFUL API documentation<a class="headerlink" href="#music-io-restful-api-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="get-a-track">
+<h2>Get a Track<a class="headerlink" href="#get-a-track" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get-v1-tracks-(int-track_id)">
+<code class="descname">GET </code><code class="descname">v1/tracks/</code><span class="sig-paren">(</span><em class="property">int: </em><em>track_id</em><span class="sig-paren">)</span><a class="headerlink" href="#get-v1-tracks-(int-track_id)" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Get a single track identified by its unique ID.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>track_id</strong> (<em>int</em>) &#8211; tracks&#8217;s unique id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="get-tracks">
+<h2>Get Tracks<a class="headerlink" href="#get-tracks" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get-v1-tracks">
+<code class="descname">GET </code><code class="descname">v1/tracks</code><a class="headerlink" href="#get-v1-tracks" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Get a set of the requested tracks.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tracks_id</strong> &#8211; Required. A comma-separated list of the IDs for the tracks. Maximum: 50 IDs.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="get-audio-features">
+<h2>Get Audio Features<a class="headerlink" href="#get-audio-features" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get-v1-audio-features-(int-track_id)">
+<code class="descname">GET </code><code class="descname">v1/audio-features/</code><span class="sig-paren">(</span><em class="property">int: </em><em>track_id</em><span class="sig-paren">)</span><a class="headerlink" href="#get-v1-audio-features-(int-track_id)" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Get audio feature information for a single track identified by its unique ID.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>track_id</strong> (<em>int</em>) &#8211; tracks&#8217;s unique id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="get-an-album">
+<h2>Get An Album<a class="headerlink" href="#get-an-album" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get-v1-albums-(int-album_id)">
+<code class="descname">GET </code><code class="descname">v1/albums/</code><span class="sig-paren">(</span><em class="property">int: </em><em>album_id</em><span class="sig-paren">)</span><a class="headerlink" href="#get-v1-albums-(int-album_id)" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Get catalog information for a single album.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>album_id</strong> (<em>int</em>) &#8211; album&#8217;s unique id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="get-several-albums">
+<h2>Get Several Albums<a class="headerlink" href="#get-several-albums" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get-v1-albums">
+<code class="descname">GET </code><code class="descname">v1/albums</code><a class="headerlink" href="#get-v1-albums" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Get a set of the requested tracks.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>album_ids</strong> &#8211; Required. A comma-separated list of the IDs for the albums. Maximum: 50 IDs.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="get-an-albums-tracks">
+<h2>Get an Album’s Tracks<a class="headerlink" href="#get-an-albums-tracks" title="Permalink to this headline">¶</a></h2>
+<dl class="get">
+<dt id="get-v1-albums-(int-album_id)-tracks">
+<code class="descname">GET </code><code class="descname">v1/albums/</code><span class="sig-paren">(</span><em class="property">int: </em><em>album_id</em><span class="sig-paren">)</span><code class="descname">/tracks</code><a class="headerlink" href="#get-v1-albums-(int-album_id)-tracks" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Get Spotify catalog information about an album’s tracks.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>album_id</strong> (<em>int</em>) &#8211; album&#8217;s unique id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Music.io RESTFUL API documentation</a><ul>
+<li><a class="reference internal" href="#get-a-track">Get a Track</a></li>
+<li><a class="reference internal" href="#get-tracks">Get Tracks</a></li>
+<li><a class="reference internal" href="#get-audio-features">Get Audio Features</a></li>
+<li><a class="reference internal" href="#get-an-album">Get An Album</a></li>
+<li><a class="reference internal" href="#get-several-albums">Get Several Albums</a></li>
+<li><a class="reference internal" href="#get-an-albums-tracks">Get an Album’s Tracks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, GRUPO 1.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,18 @@
+Post something
+===========================================================
+
+.. http:post:: /posts/(int:post_id)
+
+   Replies a comment to the post.
+
+   :param post_id: post's unique id
+   :type post_id: int
+   :form email: author email address
+   :form body: comment body
+   :reqheader Accept: the response content type depends on
+                      :mailheader:`Accept` header
+   :reqheader Authorization: optional OAuth token to authenticate
+   :resheader Content-Type: this depends on :mailheader:`Accept`
+                            header of request
+   :status 302: and then redirects to :http:get:`/posts/(int:post_id)`
+   :status 400: when form parameters are missing
