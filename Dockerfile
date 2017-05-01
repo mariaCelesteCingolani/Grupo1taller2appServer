@@ -22,6 +22,11 @@ RUN cd home && wget https://github.com/mongodb/mongo-c-driver/releases/download/
 
 RUN git clone https://github.com/mongodb/mongo-cxx-driver.git --branch releases/stable --depth 1 && cd mongo-cxx-driver/build && cmake -DCMAKE_BUILD_TYPE=Release -DBSONCXX_POLY_USE_MNMLSTC=1 -DCMAKE_INSTALL_PREFIX=/usr/local .. && make EP_mnmlstc_core && make && make install && cd .. && cd ..
 
+# Google Test
+
+RUN git clone https://github.com/google/googletest.git
+RUN cd googletest && cmake -DBUILD_SHARED_LIBS=ON . && make && cd googletest && cp -a include/gtest /usr/include && cmake -DBUILD_SHARED_LIBS=ON . && make && cp -a libgtest_main.so libgtest.so /usr/lib/ 
+
 # Copy src from git
 
 RUN git clone https://github.com/taller-de-programacion-2/2017-1c-music-io-app-server-grupo-1.git
