@@ -1,6 +1,15 @@
 sudo: required
-
+dist: trusty
 language: cpp
+compiler: gcc
+os: linux
 
-notifications:
-email: false
+before_install:
+  - sudo bash install.sh
+
+install:
+  - cd test
+  - cmake .
+  - make
+script:
+- ./test/testing

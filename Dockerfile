@@ -20,7 +20,7 @@ RUN cd home && wget https://github.com/mongodb/mongo-c-driver/releases/download/
 
 # Install libmongocxx
 
-RUN git clone https://github.com/mongodb/mongo-cxx-driver.git --branch releases/stable --depth 1 && cd mongo-cxx-driver/build && cmake -DCMAKE_BUILD_TYPE=Release -DBSONCXX_POLY_USE_MNMLSTC=1 -DCMAKE_INSTALL_PREFIX=/usr/local .. && make EP_mnmlstc_core && make && make install && cd .. && cd ..
+RUN git clone https://github.com/mongodb/mongo-cxx-driver.git --branch releases/stable --depth 1 && cd mongo-cxx-driver/build && cmake -DCMAKE_BUILD_TYPE=Release -DBSONCXX_POLY_USE_MNMLSTC=1 -DCMAKE_INSTALL_PREFIX=/usr/local .. && make EP_mnmlstc_core && make && make install && cd ../..
 
 # Google Test
 
