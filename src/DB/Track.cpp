@@ -9,7 +9,7 @@
 
 #include <string.h>
 
-void Track::copyAndSave (char *data, int size){
+void Track::copyAndSave (const char *data, int size){
 
 	this->buffer = new char[size];
 	memcpy(this->buffer, data, size);
@@ -17,5 +17,7 @@ void Track::copyAndSave (char *data, int size){
 }
 
 Track::~Track() {
-
+	if (buffer){
+		delete buffer;
+	}
 }

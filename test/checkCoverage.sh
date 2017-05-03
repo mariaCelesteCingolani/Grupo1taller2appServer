@@ -5,7 +5,9 @@ cd build
 cmake ..
 make
 cd ..
+sudo service mongod start
 ./build/testing
+sudo service mongod stop
 
 DIR=`tree -dfi | grep "src/DB"`
 

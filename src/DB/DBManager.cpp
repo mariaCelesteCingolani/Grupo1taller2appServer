@@ -42,10 +42,10 @@ Track* DBManager::getTrack (string id){
 	auto cursor = collection.find(
 				bsoncxx::builder::stream::document { } << "_id" << id
 						<< bsoncxx::builder::stream::finalize);
-	Track * track = new Track();
+	Track * track = NULL;
 	try{
 		for (auto&& doc : cursor) {
-
+				track = new Track();
 				track->id = doc["_id"].get_utf8().value.to_string();
 				track->type = doc["type"].get_utf8().value.to_string();
 				bsoncxx::document::element store_ele = doc["data"];
