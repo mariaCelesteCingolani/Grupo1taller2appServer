@@ -4,6 +4,9 @@ language: cpp
 compiler: gcc
 os: linux
 
+services: 
+  - mongodb
+
 before_install:
   - sudo bash install.sh
 
@@ -12,4 +15,4 @@ install:
   - cmake .
   - make
 script:
-- ./testing
+  - ./testing
