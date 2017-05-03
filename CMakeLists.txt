@@ -5,7 +5,7 @@ project (music.io)
 set(CMAKE_CXX_STANDARD 11)
 
 #Bring the headers into the project
-include_directories(src src/mongoose src/plog src/DB)
+include_directories(src src/plog src/DB src/restserver src/utils)
 
 #Packages
 find_package(PkgConfig)
@@ -18,7 +18,7 @@ include_directories(${LIBMONGOCXX_INCLUDE_DIRS} ${LIBBSONCXX_INCLUDE_DIRS} ${LIB
 link_directories(${LIBMONGOCXX_LIBRARY_DIRS} ${LIBBSONCXX_LIBRARY_DIRS} ${LIBMONGOC_LIBRARY_DIRS}) 
 
 #However, the file(GLOB...) allows for wildcard additions:
-file(GLOB SOURCES "src/*.cpp" src/DB/*.cpp src/mongoose/*.c )
+file(GLOB SOURCES "src/*.cpp" src/DB/*.cpp src/restserver/*.c src/restserver/*.cpp src/utils/*.cpp)
 
 add_executable(serverapp ${SOURCES})
 
