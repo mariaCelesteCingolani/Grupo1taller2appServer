@@ -1,5 +1,4 @@
 #include "RestServer.h"
-#include "NotFoundResponse.h"
 #include "Response.h"
 #include "Request.h"
 #include "../plog/Log.h"
@@ -16,6 +15,7 @@ void event_handler(mg_connection *nc, int ev, void *ev_data) {
 }
 
 RestServer::RestServer(int port): port(port), mgr(NULL), nc(NULL), running(false){
+	this->cont = new ControllerManager();
 }
 
 bool RestServer::start() {
@@ -45,10 +45,12 @@ bool RestServer::start() {
 }
 
 bool RestServer::stop() {
+
 	if (running) {
 		mg_mgr_free(mgr);
 		// todo liberar conexion si hay
 		running = false;
+		LOG(plog::info) << "El servidor se ha detenido";
 		return true;
 	}
 	return false;
@@ -57,10 +59,13 @@ bool RestServer::stop() {
 void RestServer::handleRequest(mg_connection *c, http_message * p){
 	// request parsea el mensaje
 	Request * req = new Request (p);
+	LOG(plog::info)<< "Nuevo request recibido " << req->getMethod()
+			<< " "<<req->getUri() << " " << req->getQuery();
 	// controller ve si puede procesar el request
 	Response *resp = cont->process(req);
 	if (resp == NULL) {
-		resp = new NotFoundResponse();
+		LOG(plog::info)<< "El request no ha podido ser procesado ";
+		resp = new Response(HTTP_NOT_FOUND);
 	}
 	resp->sendTo(c);
 	delete resp;

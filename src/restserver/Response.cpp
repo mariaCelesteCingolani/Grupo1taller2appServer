@@ -1,20 +1,15 @@
 #include "Response.h"
-
+#include "../plog/Log.h"
 #include <sstream>
 
-Response::Response() {
-	// TODO Auto-generated constructor stub
-
-}
-
 void Response::sendTo(mg_connection *c) {
-	std::string data = getData();
+	LOG(plog::info)<< "Enviando respuesta " ;
+	std::string data = this->getData();
 	mg_printf(c, "%s", data.c_str());
 }
 
 std::string Response::getData(){
 	std::ostringstream data;
-	std::string body = getBody();
 	data << "HTTP/1.0 " << code << "\n";
 	data << "Content-Length: " << body.length() << std::endl;
 	data << std::endl;

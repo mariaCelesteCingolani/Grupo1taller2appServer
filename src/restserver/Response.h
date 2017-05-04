@@ -2,28 +2,23 @@
 #define RESPONSE_H_
 
 #include "mongoose.h"
+#include "Config.h"
 #include <string>
-
-#define HTTP_OK 200
-#define HTTP_CREATED 201
-#define HTTP_BAD_REQUEST 400
-#define HTTP_NOT_FOUND 404
-#define HTTP_FORBIDDEN 403
-#define HTTP_SERVER_ERROR 500
 
 class Response {
 public:
-	Response();
+	Response(int code = HTTP_OK, std::string body = ""): code(code), body(body){} ;
 
-	std::string getData();
-
-	virtual std::string getBody() = 0;
+	void setCode(int code);
 
 	void sendTo(mg_connection *c);
 
 	virtual ~Response();
-protected:
+private:
 	int code;
+	std::string body;
+
+	std::string getData();
 };
 
 #endif /* RESPONSE_H_ */

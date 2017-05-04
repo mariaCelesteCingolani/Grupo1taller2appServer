@@ -3,6 +3,8 @@
 
 #include "Request.h"
 #include "Response.h"
+#include "Controller.h"
+#include <list>
 
 class ControllerManager {
 public:
@@ -11,6 +13,10 @@ public:
 	Response * process(Request * request);
 
 	virtual ~ControllerManager();
+private:
+	std::list<Controller *> controllers;
+
+	void addController (Controller * cont);
 };
 
 #endif /* CONTROLLERMANAGER_H_ */

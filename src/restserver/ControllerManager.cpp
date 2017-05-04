@@ -1,12 +1,18 @@
 #include "ControllerManager.h"
+#include "GetTrackController.h"
 
 ControllerManager::ControllerManager() {
-	// TODO Auto-generated constructor stub
-
+	this->controllers.push_back(new GetTrackController());
 }
 
 Response *ControllerManager::process(Request *request) {
-	//todo
+	Response * response;
+	for (Controller * cont: controllers){
+		if (cont->canProcess(request)){
+			response = cont->process(request);
+			return response;
+		}
+	}
 	return NULL;
 }
 
