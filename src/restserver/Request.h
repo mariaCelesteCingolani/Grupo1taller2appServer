@@ -4,22 +4,22 @@
 #include "mongoose.h"
 #include "Config.h"
 #include <string>
-#include <map>
+
+using namespace std;
 
 class Request {
 public:
 	Request(http_message* mssg):mssg(mssg){};
 	virtual ~Request();
-    std::string getBody() const;
-    std::string getMethod() const;
-    std::string getQuery() const;
-    std::string getUri() const;
+    string getBody() const;
+    string getMethod() const;
+    string getQuery() const;
+    string getUri() const;
+    string getHeader (string key);
 
 private:
 	http_message * mssg;
 
-	// todo borrar
-	//void parse (http_message * mssg);
 };
 
 #endif /* REQUEST_H_ */

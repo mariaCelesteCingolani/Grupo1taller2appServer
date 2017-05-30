@@ -12,6 +12,8 @@
 #define USER_KEY "user"
 #define PASS_KEY "password"
 #define TRACK_ID_KEY "track_id"
+#define USER_NAME_HEADER "Name"
+#define TOKEN_HEADER "Authorization"
 
 
 

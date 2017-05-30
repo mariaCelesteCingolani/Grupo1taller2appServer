@@ -15,7 +15,7 @@ public:
 private:
 	std::string trackId;
 	std::string usrName;
-	std::string usrPasswd;
+	std::string token;
 
 	bool checkUserLogged();
 };

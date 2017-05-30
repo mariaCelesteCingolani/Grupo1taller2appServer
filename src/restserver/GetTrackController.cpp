@@ -3,6 +3,7 @@
 #include "../plog/Log.h"
 #include "../DB/DBManager.h"
 #include <map>
+#include <iostream>
 
 
 GetTrackController::GetTrackController():Controller(HTTP_GET, "/api/tracks") {
@@ -10,18 +11,21 @@ GetTrackController::GetTrackController():Controller(HTTP_GET, "/api/tracks") {
 
 
 bool GetTrackController::canProcess(Request * request) {
-	// todo cambiar lectura de request.
 	if (Controller::canProcess(request)){
-		LOG(plog::info)<< "Método y uri coinciden, verificando cuerpo ";
-		// todo agregar lectura de header
+		LOG(plog::info)<< "Método y uri ok, verificando parámetros ";
+		// parámetros
 		if (request->getQuery() != ""){
 			std::map<std::string, std::string> map = parseQuery(request->getQuery());
 			if (map.count(TRACK_ID_KEY)){
-				LOG(plog::info)<< "Cuerpo del mensaje ok";
+				LOG(plog::info)<< "Parámetros ok - buscando track: " << map[TRACK_ID_KEY];
 				this->trackId = map[TRACK_ID_KEY];
-				return true;
 			}
 		}
+		// headers
+		this->usrName = request->getHeader(USER_NAME_HEADER);
+		this->token = request->getHeader(TOKEN_HEADER);
+		LOG(plog::info)<< "Headers ok - User: " << this->usrName << "Token: " << this->token;
+		return true;
 	}
 	return false;
 }
@@ -44,7 +48,7 @@ Response *GetTrackController::getResponse() {
 }
 
 bool GetTrackController::checkUserLogged(){
-	LOG(plog::info)<< "Validando usuario: "  << "Name: " << usrName << "Token: "  << usrPasswd;
+	LOG(plog::info)<< "Validando usuario: "  << "Name: " << usrName << "Token: "  << token;
 	// todo
 	return true;
 }
