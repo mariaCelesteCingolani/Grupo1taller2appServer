@@ -18,7 +18,6 @@ int main(int argc, char *argv[]) {
 	LOG(plog::info) << "Starting appserver";
 	RestServer r ;
 	r.start();
-//	aux();
 	return 0;
 
 }

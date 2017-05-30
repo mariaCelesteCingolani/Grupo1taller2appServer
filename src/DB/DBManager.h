@@ -17,14 +17,16 @@ private:
 
 public:
 
-	// adds a track to the database.
-	// returns true if success, false other
+	// agrega un nuevo track
+	// devuelve true en caso de éxito, false en otro caso
 	bool addTrack(Track* track);
 
+	// borra el track correspondiente a id
 	bool deleteTrack(string id);
 
+	// Devuelve el track correspondiente a id
+	// o null si no existe
 	Track* getTrack (string id);
-
 
 
 	DBManager(string uri);

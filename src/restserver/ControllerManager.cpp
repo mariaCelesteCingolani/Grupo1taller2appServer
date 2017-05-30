@@ -9,7 +9,7 @@ Response *ControllerManager::process(Request *request) {
 	Response * response;
 	for (Controller * cont: controllers){
 		if (cont->canProcess(request)){
-			response = cont->process(request);
+			response = cont->getResponse();
 			return response;
 		}
 	}

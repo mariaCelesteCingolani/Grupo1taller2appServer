@@ -7,7 +7,7 @@ class GetTrackController: public Controller {
 public:
 	GetTrackController();
 
-	Response * process (Request * request);
+	Response * getResponse ();
 
 	bool canProcess (Request * request );
 

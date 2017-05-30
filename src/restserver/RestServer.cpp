@@ -48,7 +48,6 @@ bool RestServer::stop() {
 
 	if (running) {
 		mg_mgr_free(mgr);
-		// todo liberar conexion si hay
 		running = false;
 		LOG(plog::info) << "El servidor se ha detenido";
 		return true;

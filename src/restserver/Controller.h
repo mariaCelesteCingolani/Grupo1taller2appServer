@@ -8,7 +8,7 @@ class Controller {
 public:
 	Controller(std::string method, std::string uri): method(method), uri(uri){};
 
-	virtual Response * process (Request * request) = 0;
+	virtual Response * getResponse () = 0;
 
 	virtual bool canProcess (Request * request );
 

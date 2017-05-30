@@ -8,7 +8,7 @@
 
 class Request {
 public:
-	Request(http_message* mssg);
+	Request(http_message* mssg):mssg(mssg){};
 	virtual ~Request();
     std::string getBody() const;
     std::string getMethod() const;
@@ -16,11 +16,10 @@ public:
     std::string getUri() const;
 
 private:
-	std::string method;
-	std::string uri;
-	std::string body;
-	std::string query;
-	void parse (http_message * mssg);
+	http_message * mssg;
+
+	// todo borrar
+	//void parse (http_message * mssg);
 };
 
 #endif /* REQUEST_H_ */
