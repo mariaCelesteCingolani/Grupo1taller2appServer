@@ -11,20 +11,21 @@ GetTrackController::GetTrackController():Controller(HTTP_GET, "/api/tracks") {
 
 
 bool GetTrackController::canProcess(Request * request) {
+	LOG(plog::debug) << "GetTrackController::canProcess";
 	if (Controller::canProcess(request)){
-		LOG(plog::info)<< "Método y uri ok, verificando parámetros ";
+		LOG(plog::debug)<< "	Método y uri ok, verificando parámetros ";
 		// parámetros
 		if (request->getQuery() != ""){
 			std::map<std::string, std::string> map = parseQuery(request->getQuery());
 			if (map.count(TRACK_ID_KEY)){
-				LOG(plog::info)<< "Parámetros ok - buscando track: " << map[TRACK_ID_KEY];
+				LOG(plog::debug)<< "	Parámetros ok - buscando track: " << map[TRACK_ID_KEY];
 				this->trackId = map[TRACK_ID_KEY];
 			}
 		}
 		// headers
 		this->usrName = request->getHeader(USER_NAME_HEADER);
 		this->token = request->getHeader(TOKEN_HEADER);
-		LOG(plog::info)<< "Headers ok - User: " << this->usrName << "Token: " << this->token;
+		LOG(plog::debug)<< "    Headers ok - User: " << this->usrName << "Token: " << this->token;
 		return true;
 	}
 	return false;
@@ -40,6 +41,7 @@ Response *GetTrackController::getResponse() {
 			response = new Response(HTTP_OK, "Transfer-Encoding: chunked",
 					track->buffer, track->size);
 		} else{
+			LOG(plog::info)<< "No se encontró el track solicitado";
 			response = new Response(HTTP_NOT_FOUND);
 		}
 		return response;
@@ -56,5 +58,4 @@ bool GetTrackController::checkUserLogged(){
 
 
 GetTrackController::~GetTrackController() {
-	// TODO Auto-generated destructor stub
 }

@@ -1,5 +1,4 @@
 #include "Request.h"
-#include "../plog/Log.h"
 
 string Request::getBody() const {
 	return std::string(mssg->body.p, (size_t) mssg->body.len);

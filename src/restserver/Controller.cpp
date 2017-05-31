@@ -1,18 +1,20 @@
 #include "Controller.h"
 
+#include "../plog/Log.h"
 #include <regex>
 #include <map>
 
 
 bool Controller::canProcess (Request * request ){
+	LOG(plog::debug) << "Controller::canProcess";
 	return (this->method.compare(request->getMethod()) == 0 &&
 			this->uri.compare(request->getUri())== 0 );
 };
 
 
 
-std::map<std::string, std::string> Controller::parseQuery(const std::string& query)
-{
+std::map<std::string, std::string> Controller::parseQuery(const std::string& query){
+	LOG(plog::info) << "Controller::parseQuery: " << query;
     std::map<std::string, std::string> data;
     std::regex pattern("([\\w+%]+)=([^&]*)");
     auto words_begin = std::sregex_iterator(query.begin(), query.end(), pattern);
@@ -29,5 +31,5 @@ std::map<std::string, std::string> Controller::parseQuery(const std::string& que
 }
 
 Controller::~Controller() {
-	// TODO Auto-generated destructor stub
+
 }
