@@ -63,7 +63,7 @@ void addTrack(string trackId, string path){
 	myFile.seekg(0,ios_base::beg);
 	char buffer[size];
 	myFile.read (buffer, size);
-	DBManager d("mongodb://localhost:27017");
+	DBManager d("mongodb://admin:admin@musicio-shard-00-00-7k5wq.mongodb.net:27017,musicio-shard-00-01-7k5wq.mongodb.net:27017,musicio-shard-00-02-7k5wq.mongodb.net:27017/musiciodb?ssl=true&replicaSet=musicio-shard-0&authSource=admin");
 	Track* track = new Track(trackId, "mp3", size, buffer);
 	if (d.addTrack(track)){
 		cout << "Agregado con éxito" << endl;
@@ -76,7 +76,7 @@ void addTrack(string trackId, string path){
 }
 
 void deleteTrack (string trackId){
-	DBManager d("mongodb://localhost:27017");
+	DBManager d("mongodb://admin:admin@musicio-shard-00-00-7k5wq.mongodb.net:27017,musicio-shard-00-01-7k5wq.mongodb.net:27017,musicio-shard-00-02-7k5wq.mongodb.net:27017/musiciodb?ssl=true&replicaSet=musicio-shard-0&authSource=admin");
 	d.deleteTrack(trackId);
 	cout << "Borrado el track con id: " << trackId << endl;
 }
