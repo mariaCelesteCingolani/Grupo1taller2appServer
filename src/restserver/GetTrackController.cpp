@@ -34,7 +34,7 @@ bool GetTrackController::canProcess(Request * request) {
 Response *GetTrackController::getResponse() {
 	if (checkUserLogged()){
 		LOG(plog::info)<< "Usuario válido generando respuesta";
-		DBManager d("mongodb://localhost:27017");
+		DBManager d("mongodb://admin:admin@musicio-shard-00-00-7k5wq.mongodb.net:27017,musicio-shard-00-01-7k5wq.mongodb.net:27017,musicio-shard-00-02-7k5wq.mongodb.net:27017/musiciodb?ssl=true&replicaSet=musicio-shard-0&authSource=admin");
 		Track * track = d.getTrack(trackId);
 		Response * response =  NULL;
 		if (track != NULL){
