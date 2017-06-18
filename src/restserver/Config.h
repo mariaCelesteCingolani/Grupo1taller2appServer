@@ -15,7 +15,7 @@
 #define TRACK_ID_KEY "track_id"
 #define USERNAME_KEY "userName"
 #define PASSWORD_KEY "password"
-#define MONGO_HOST "mongodb://localhost:27017"
+#define MONGO_HOST "mongodb://admin:admin@musicio-shard-00-00-7k5wq.mongodb.net:27017,musicio-shard-00-01-7k5wq.mongodb.net:27017,musicio-shard-00-02-7k5wq.mongodb.net:27017/musiciodb?ssl=true&replicaSet=musicio-shard-0&authSource=admin"
 #define PORT 9000
 #define SHARED_SERVER_TOKEN "http://musicio.herokuapp.com/token"
 
