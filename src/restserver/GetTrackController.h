@@ -7,17 +7,19 @@ class GetTrackController: public Controller {
 public:
 	GetTrackController();
 
-	Response * getResponse ();
-
-	bool canProcess (Request * request );
+	virtual Response * getResponse (Request * request);
 
 	virtual ~GetTrackController();
+
 private:
 	std::string trackId;
 	std::string usrName;
-	std::string token;
+	std::string password;
 
 	bool checkUserLogged();
+
+	Response * getTrackResponse();
+
 };
 
 #endif /* GETTRACKCONTROLLER_H_ */

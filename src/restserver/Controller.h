@@ -9,9 +9,9 @@ class Controller {
 public:
 	Controller(std::string method, std::string uri): method(method), uri(uri){};
 
-	virtual Response * getResponse () = 0;
+	virtual Response * getResponse (Request * request) = 0;
 
-	virtual bool canProcess (Request * request );
+	bool canProcess (Request * request );
 
 	virtual ~Controller();
 

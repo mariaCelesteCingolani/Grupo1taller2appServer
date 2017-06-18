@@ -4,6 +4,7 @@
 #include "../plog/Log.h"
 #include "../utils/Utils.h"
 
+#include <iostream>
 
 void event_handler(mg_connection *nc, int ev, void *ev_data) {
 	if (ev == MG_EV_HTTP_REQUEST) {
@@ -62,10 +63,6 @@ void RestServer::handleRequest(mg_connection *c, http_message * p){
 			<< " "<<req->getUri() << " " << req->getQuery();
 	// controller ve si puede procesar el request
 	Response *resp = cont->process(req);
-	if (resp == NULL) {
-		LOG(plog::info)<< "El request no ha podido ser procesado ";
-		resp = new Response(HTTP_NOT_FOUND);
-	}
 	resp->sendTo(c);
 	delete resp;
 	delete req;

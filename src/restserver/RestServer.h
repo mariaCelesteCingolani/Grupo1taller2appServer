@@ -3,6 +3,7 @@
 
 #include "ControllerManager.h"
 #include "mongoose.h"
+#include "Config.h"
 #include <list>
 
 class RestServer {
@@ -14,7 +15,7 @@ private:
 	ControllerManager * cont;
 
 public:
-	RestServer(int port = 8000);
+	RestServer(int port = PORT);
 
 	bool start();
 

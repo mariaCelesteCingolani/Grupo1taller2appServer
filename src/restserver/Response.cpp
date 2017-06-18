@@ -8,8 +8,6 @@
 using namespace std;
 
 void Response::sendTo(mg_connection *c) {
-	LOG(plog::info)<< "Enviando respuesta " ;
-
 	// header
 	std::ostringstream heads;
 	heads << "HTTP/1.0 " << code << std::endl;
@@ -23,6 +21,7 @@ void Response::sendTo(mg_connection *c) {
 		mg_send_http_chunk(c, (char *)data, data_size);
 		mg_send_http_chunk(c, "", 0); // Tell the client we're finished
 	}
+	LOG(plog::info)<< "Respuesta enviada " ;
 }
 
 

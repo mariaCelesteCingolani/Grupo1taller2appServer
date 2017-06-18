@@ -7,17 +7,16 @@ ControllerManager::ControllerManager() {
 }
 
 Response *ControllerManager::process(Request *request) {
-	LOG(plog::debug) << "ControllerManager::process";
 	Response * response;
 	for (Controller * cont: controllers){
 		if (cont->canProcess(request)){
-			response = cont->getResponse();
-			LOG(plog::debug) << "	respuesta encontrada";
+			LOG(plog::debug)<< " Método y uri: ok ";
+			response = cont->getResponse(request);
 			return response;
 		}
 	}
-	LOG(plog::debug) << "	respuesta no encontrada";
-	return NULL;
+	LOG(plog::debug)<< " Método y uri: error ";
+	return new Response(HTTP_BAD_REQUEST);
 }
 
 ControllerManager::~ControllerManager() {
