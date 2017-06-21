@@ -1,0 +1,96 @@
+swagger: '2.0'
+info: 
+  description: API para el App server de Music.io
+  title: Music-io - App Server API
+  version: 1.0.1
+host: music.7552.fi.uba.ar
+schemes: 
+  - http
+basePath: /app
+consumes: 
+  - application/json
+produces: 
+  - application/json
+securityDefinitions:
+  Token:
+    type: apiKey
+    in: query
+    name: token
+paths:
+  /tracks/{track_id}:
+    get:
+      parameters: 
+        - description: "Id del track solicitado"
+          in: query
+          name: track_id
+          required: true
+          type: integer
+      description: |
+          El endpoint */tracks* devuelve el track solicitado
+      responses: 
+        200: 
+          description: "El track se ha enviado con exito"
+          examples: 
+            application/json: 
+              user: 
+                id: 1 
+                href: "https://music.7552.fi.uba.ar/v1/users/1"
+                userName: user1
+                firstName: User
+                lastName: User
+                country: Argentina
+                email: user@asd.com
+                birthdate: 17/5/1990
+                images: 
+                  - url1
+                  - url2
+                contacts:
+                  - id: 2
+                    href: "https://music.7552.fi.uba.ar/v1/users/2"
+                    userName: user2
+                  - id: 3
+                    href: "https://music.7552.fi.uba.ar/v1/users/3"
+                    userName: user3
+          schema: 
+            properties: 
+              metadata: 
+                $ref: "#/definitions/Metadata"
+              users: 
+                items: 
+                  $ref: "#/definitions/Track"
+        400:
+          description: "Bad request"
+          schema:
+              $ref: '#/definitions/Error'
+        403: 
+          description: "Unauthorized"
+          schema: 
+            $ref: "#/definitions/Error"
+      summary: "Tracks - track para descargar"
+definitions: 
+  Error: 
+    properties: 
+      code: 
+        format: int32
+        type: integer
+      message: 
+        type: string
+    type: object
+  Metadata: 
+    properties: 
+      count: 
+        description: "Cantidad de elementos en la respuesta"
+        type: integer
+      version: 
+        description: "Versión de la api"
+        type: string
+    type: object
+  Track: 
+    properties: 
+      id: 
+        description: "Id de la canción"
+        type: integer
+      track: 
+        description: "contenido de la cancion"
+        type: string
+    type: object
